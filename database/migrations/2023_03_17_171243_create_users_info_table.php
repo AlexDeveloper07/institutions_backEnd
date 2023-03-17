@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
-            $table->string('home_address');
-            $table->string('city');
             $table->integer('phone');
-            $table->string('disability');
+            $table->unsignedBigInteger('city_id');
+            $table->string('address');
             $table->timestamps();
+            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 
